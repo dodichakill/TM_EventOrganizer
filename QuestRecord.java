@@ -12,9 +12,9 @@ public class QuestRecord {
     static BufferedReader inputDataQuest = new BufferedReader(new InputStreamReader(System.in));
     static Scanner inputChoice = new Scanner(System.in);
     public static void main(String[] args) {
-        EventOrganizer[] listQuests = new EventOrganizer[10];
+        EventOrganizer[] listQuests = new EventOrganizer[0];
         boolean isLooping = true;
-        int inputUserChoice;
+        int inputUserChoice, totalQuest;
 
         while (isLooping) {
             System.out.println("\n[[-------------<< Event Organizer >>-------------]]");
@@ -30,10 +30,19 @@ public class QuestRecord {
                 inputUserChoice = inputChoice.nextInt();
                 System.out.println("-------------");
                 switch (inputUserChoice) {
-                    case 1 -> addQuest(listQuests);
+                    case 1 -> {
+                        System.out.print("masukan jumlah quest :");
+                        totalQuest = Integer.parseInt(inputDataQuest.readLine());
+                        listQuests = new EventOrganizer[totalQuest];
+                        addQuest(listQuests);
+                    }
                     case 2 -> {
-                        ArrayList<EventOrganizer> listQuest = new ArrayList<>(Arrays.asList(listQuests));
-                        EventOrganizer.PrintQuest(listQuest);
+                        if (listQuests.length < 1) {
+                            System.out.println("Untuk saat ini data Quest masih kosong");
+                        } else {
+                            ArrayList<EventOrganizer> listQuest = new ArrayList<>(Arrays.asList(listQuests));
+                            EventOrganizer.PrintQuest(listQuest);
+                        }
                     }
                     case 3 -> isLooping = false;
                     default -> System.out.println("=> Inputan Salah!\n");
