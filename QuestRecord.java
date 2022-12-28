@@ -12,7 +12,7 @@ public class QuestRecord {
     static BufferedReader inputDataQuest = new BufferedReader(new InputStreamReader(System.in));
     static Scanner inputChoice = new Scanner(System.in);
     public static void main(String[] args) {
-        EventOrganizer[] listQuests = new EventOrganizer[2];
+        EventOrganizer[] listQuests = new EventOrganizer[10];
         boolean isLooping = true;
         int inputUserChoice;
 
